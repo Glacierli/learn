@@ -1,6 +1,6 @@
 # learn
 
-###task1: 基本的web项目，无框架
+### task1: 基本的web项目，无框架
 两个页面：登录页面，登录成功页面
 1. 完成一个表单的提交
     表单包括：
@@ -13,7 +13,7 @@
 4. 提交成功之后，页面显示注销。点击之后，重新跳转到登录页面。
 5. 页面使用bootstrap进行布局和显示
 
-###task2: 项目中嵌入springMVC框架，拆分出controller和service
+### task2: 项目中嵌入springMVC框架，拆分出controller和service
 并进行如下修改:
 1. 增加一个新的登录页，使用GET方法提交数据，并且也可以回显到登录成功页面。
 2. 添加编辑页面，可以对登录用户进行信息信息修改。
@@ -27,7 +27,7 @@
 3 https://www.cnblogs.com/younggun/p/3184808.html
 4 https://www.cnblogs.com/xuanlanbinfen/p/5766129.html
 
-###task3: 将上述项目使用jdbc封装，将username和password存入数据库，并将每次修改的动作都进行记录。
+### task3: 将上述项目使用jdbc封装，将username和password存入数据库，并将每次修改的动作都进行记录。
 并思考以下问题：
 1. 我如果要进行密码回滚，怎么实现。
 2. 如果同时有两个人进行修改密码，会出现什么情况？为什么？
