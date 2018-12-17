@@ -22,10 +22,10 @@
 5. 熟悉springMVC的基本原理，比较和jsp+servlet+javaBean 进行了哪些封装，优势和劣势。（如果感觉吃力，可以略过，但是需要了解大概）
 
 参考文档：
-1 https://blog.csdn.net/yanweihpu/article/details/80366218
-2 https://www.cnblogs.com/leskang/p/5445698.html
-3 https://www.cnblogs.com/younggun/p/3184808.html
-4 https://www.cnblogs.com/xuanlanbinfen/p/5766129.html
+1. https://blog.csdn.net/yanweihpu/article/details/80366218  
+2. https://www.cnblogs.com/leskang/p/5445698.html
+3. https://www.cnblogs.com/younggun/p/3184808.html
+4. https://www.cnblogs.com/xuanlanbinfen/p/5766129.html
 
 ### task3: 将上述项目使用jdbc封装，将username和password存入数据库，并将每次修改的动作都进行记录。
 并思考以下问题：
