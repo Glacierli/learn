@@ -31,5 +31,6 @@ task3: 将上述项目使用jdbc封装，将username和password存入数据库�
 2. 如果同时有两个人进行修改密码，会出现什么情况？为什么？
 3. 了解事务的原理，并将jdbc中加入事务控制代码。
 
+
 task4: 将jdbc改为mybatis，不要使用spring，配置mybatis框架，并将以上jdbc代码用mybatis重写。
 
