@@ -1,12 +1,35 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <web-app xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://java.sun.com/xml/ns/javaee" xsi:schemaLocation="http://java.sun.com/xml/ns/javaee http://java.sun.com/xml/ns/javaee/web-app_3_0.xsd" version="3.0">
   <welcome-file-list>
-    <welcome-file>main/login.jsp</welcome-file>
+    <welcome-file>/main/login.jsp</welcome-file>
+     <welcome-file>/doIndexUI.do</welcome-file>
   </welcome-file-list>
    <servlet>
     <servlet-name>LoginServlet</servlet-name>
     <servlet-class>cn.pdstore.LoginServlet</servlet-class>
   </servlet>
+  
+  <servlet>
+       <servlet-name>frontController</servlet-name>
+       <servlet-class>org.springframework.web.servlet.DispatcherServlet</servlet-class>
+       <!-- 定义初始参数 -->
+       <init-param>
+          <!-- 这个参数是DispatcherServlet父类中的一个属性 -->
+          <param-name>contextConfigLocation</param-name>
+          <param-value>classpath:applicationcontext.xml</param-value>
+       </init-param>
+       <!-- 通过配置load-on-startup元素,定义servlet在web服务器启动时初始化,
+        load-on-start元素的值越小,启动优先级越高-->
+       <load-on-startup>1</load-on-startup>
+  </servlet> 
+  
+  
+   <!-- 定义servlet的映射 -->
+  <servlet-mapping>
+        <servlet-name>frontController</servlet-name>
+        <url-pattern>*.do</url-pattern>
+  </servlet-mapping>
+  
   
   <servlet-mapping>
     <servlet-name>LoginServlet</servlet-name>
@@ -20,5 +43,8 @@
     <servlet-name>default</servlet-name>
     <url-pattern>*.css</url-pattern>
   </servlet-mapping> 
+  
+  
+  
   
 </web-app>

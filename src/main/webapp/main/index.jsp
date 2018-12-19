@@ -39,7 +39,7 @@
 		<li class="list-group-item"><%=name%>:欢迎你</li>
 		<li class="list-group-item">密码为：<%=pwd%></li>
 		
-<button type="button" class="btn btn-default"><a href="/learn01/main/login.jsp">注销</a></button>
+<button type="button" class="btn btn-default"><a href="learn01/main/login.jsp">注销</a></button>
 	</ul>
 </body>
 </html>
