@@ -35,8 +35,9 @@
 	<ul class="list-group">
 		<li class="list-group-item"><%=name%>:欢迎你</li>
 		<li class="list-group-item">密码为：<%=pwd%></li>
-		
+
 	<button type="button" class="btn btn-default"><a href="main/login.jsp">注销</a></button>
+
 	</ul>
 </body>
 </html>
