@@ -24,14 +24,10 @@
 
 </head>
 <body>
-
 	<%
 		String name = uu.getName();
 		String pwd = uu.getPassworld();
 	%>
-	
-
-
 	<ul class="list-group">
 		<li class="list-group-item"><%=name%>:欢迎你</li>
 		<li class="list-group-item">密码为：<%=pwd%></li>
