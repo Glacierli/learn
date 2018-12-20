@@ -1,8 +1,10 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <%@page import="cn.pdstore.Userlogin"%>
+<%@taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
+<%@ page import="java.util.*"%>
 <%
-	Userlogin uu = (Userlogin) request.getAttribute("use");
+
 	String path = request.getContextPath();
 	String basePath = request.getScheme() + "://" + request.getServerName() + ":" + request.getServerPort()
 			+ path + "/";
@@ -48,19 +50,46 @@
         </style>
 </head>
 <body>
-	<%
+<table class="table table-bordered table-striped">
+		<h2>用户管理</h2>
+		<hr />
+		<tr>		
+			<th class="text-center">用户编号</th>
+			<th class="text-center">用户名</th>
+			<th class="text-center">密码</th>
+			<th class="text-center">操作</th>
+		</tr>
+		<!--前台显示的时候的序号  -->
+		<c:forEach items="${userlist}" var="sj"  varStatus="status">
+			<tr>
+				<td>${status.index + 1}</td> 
+				
+				<input name="id" id="id" value="${ sj.id }" type="hidden"/>
+				<%-- <a type="hidden" href="view?id=${ sj.id }" data-target="#large"
+									data-toggle="modal"><nobr>${ sj.id }</nobr></a> --%>
+				<td>${ sj.name }</td>
+				<td>${ sj.passworld }</td>
+				</td>
+				<td><a href="task2/edit.do?id=${ sj.id } ">编辑</a>&nbsp;|&nbsp;
+				<a href="task2/del.do?id=${ sj.id } " class="btn-delete"  onclick="del()" data-code="${ sj.id }"><font>删除</font></a></td>
+			</tr>
+		</c:forEach>
+	</table>
+<script type="text/javascript">
+</script>
+
+	<%-- <%
 		String name = uu.getName();
 		String pwd = uu.getPassworld();
 	%>
 	<ul class="list-group">
 		<li class="list-group-item"><%=name%>:欢迎你</li>
 		<li class="list-group-item">密码为：<%=pwd%></li>
-
 		<button type="button" class="btn btn-default">
 			<a href="task2/logintwo.jsp">注销</a>
 		<button type="button" class="btn btn-default">
 			<a href="task2/edit.do">编辑</a>
-	</ul>
+	</ul> --%>
 <!-- 	<div>
 		模态框（Modal）
 		<div class="modal fade " id="myModal" tabindex="-1" role="dialog"

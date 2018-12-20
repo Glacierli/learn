@@ -2,8 +2,29 @@ package cn.pdstore;
 import java.io.Serializable;
 public class Userlogin implements Serializable {
 
+	private int id;
 	private String name;
 	private String passworld;
+
+	
+	public Userlogin() {
+		super();
+	}
+
+	public Userlogin(int id, String name, String passworld) {
+		super();
+		this.id = id;
+		this.name = name;
+		this.passworld = passworld;
+	}
+
+	public int getId() {
+		return id;
+	}
+
+	public void setId(int id) {
+		this.id = id;
+	}
 
 	public String getName() {
 		return name;
@@ -23,7 +44,7 @@ public class Userlogin implements Serializable {
 
 	@Override
 	public String toString() {
-		return "User [name=" + name + ", passworld=" + passworld + "]";
+		return "Userlogin [id=" + id + ", name=" + name + ", passworld=" + passworld + "]";
 	}
 
 }
