@@ -1,3 +1,4 @@
+//-----------------------------------------基础----------------------------------------------------
 task1: 基本的web项目，无框架
 两个页面：登录页面，登录成功页面
 1. 完成一个表单的提交
@@ -33,4 +34,28 @@ task3: 将上述项目使用jdbc封装，将username和password存入数据库�
 
 
 task4: 将jdbc改为mybatis，不要使用spring，配置mybatis框架，并将以上jdbc代码用mybatis重写。
+并分别使用以下方式进行使用：
+1. 使用sqlSession自带方法来执行sql
+2. 使用Mapper接口类执行sql
 
+参考文档： http://www.mybatis.org/mybatis-3/zh/index.html
+
+task5: 使用spring框架，将springMVC和mybtis的配置，实例化，使用spring进行管理。
+并使用以下特性：
+1. 配置AOP，对每次修改后进行通知，打印修改内容。
+2. 使用spring自带事务来管理数据操作。
+3. 了解spring的三种注入方式。
+
+
+//------------------------------------------进阶----------------------------------------------------
+
+task6：增加注册页面，用户管理页面。对登录用户进行校验，非注册用户无法登录，非root用户无法进入用户管理界面。
+实现方式如下：
+1. 自定义AuthValidate注解
+2. 配置SpringMVC interceptor来对用户进行校验。
+
+task7: 手动实现springMVC 部分功能，具体功能如下。
+
+task8: 手动实现mybatis的sqlsessionFactory部分功能，具体功能如下：
+
+task9: 手动实现spring的部分功能，具体功能如下：
