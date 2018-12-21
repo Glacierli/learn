@@ -75,7 +75,6 @@
 			</tr>
 		</c:forEach>
 	</table>
-	
 <script type="text/javascript">
 </script>
 

@@ -16,6 +16,8 @@ public class LoginController {
 
 	@Autowired
 	private LoginService loginService;
+	@Autowired
+	private LogService logService;
 	//定义全局变量
 	//private Userlogin user;
 	// 默认请求方式为get 首页
@@ -44,6 +46,10 @@ public class LoginController {
 	@RequestMapping("edit")
 	public String loadeditPage(@RequestParam(value = "id") int id, ModelMap map) {
 		Userlogin user = loginService.finbyid(id);
+		Log lg=new Log();
+		lg.setName(user.getName());
+		lg.setPassworld(user.getPassworld());
+		logService.insertlog(lg);
 		//先走查询再走修改
 		map.put("use", user);
 		return "/edit";
@@ -52,6 +58,7 @@ public class LoginController {
 	@RequestMapping("del")
 	public String del(@RequestParam(value = "id") int id, ModelMap map) {
 		loginService.deluser(id);
+		Userlogin user = loginService.finbyid(id);
 		//先走查询再走修改
 		return "redirect:/task2/demo.do";
 	}

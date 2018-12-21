@@ -17,6 +17,7 @@ public class LoginService {
 		try {
 			//获取连接器
 			 conn = JDBCUtils.getConn();
+			 conn.setAutoCommit(false);
 			 //sql语句
 			String sql="insert into user"+ " values(null,?,?)";
 			//获取传输器
@@ -25,6 +26,7 @@ public class LoginService {
 			ps.setString(2, passworld);
 			//执行SQL语句
 			ps.executeUpdate();
+			conn.commit();
 		} catch (Exception e) {
 			// TODO Auto-generated catch block
 			System.out.println("失败!!");
@@ -46,6 +48,7 @@ public class LoginService {
 			try {
 				//获取连接器
 				 conn = JDBCUtils.getConn();
+				 
 				 //sql语句
 				String sql="select*from user";
 				//获取传输器
@@ -115,6 +118,7 @@ public class LoginService {
 			try {
 				//1.从连接池中获取一个连接对象
 				conn = JDBCUtils.getConn();
+				conn.setAutoCommit(false);
 				//2.声明sql语句, 获取传输器
 				String sql = "update user"
 						+ " set name=?,passworld=?"
@@ -126,6 +130,7 @@ public class LoginService {
 				ps.setInt(3, id);
 				//4.执行sql语句
  				ps.executeUpdate();
+ 				conn.commit();
 			} catch (Exception e) {
 				e.printStackTrace();//记得打印异常信息!!
 				System.out.println("修改失败!!");
@@ -143,13 +148,15 @@ public class LoginService {
 			try {
 				//1.获取连接对象
 				conn = JDBCUtils.getConn();
+				conn.setAutoCommit(false);
 				//2.声明sql语句,获取传输器
 				String sql = "delete from user where id=?";
 				ps = conn.prepareStatement(sql);
 				//3.设置sql参数
 				ps.setInt(1, id);
 				//4.执行sql语句,完成删除操作
-				ps.executeUpdate();//不要传SQL参数!
+				ps.executeUpdate();
+				conn.commit();
 			} catch (Exception e) {
 				e.printStackTrace();
 				System.out.println("删除失败!");
