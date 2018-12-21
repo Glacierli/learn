@@ -1,5 +1,8 @@
 package cn.pdstore;
 
+import java.sql.Timestamp;
+import java.text.DateFormat;
+import java.text.SimpleDateFormat;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -46,19 +49,29 @@ public class LoginController {
 	@RequestMapping("edit")
 	public String loadeditPage(@RequestParam(value = "id") int id, ModelMap map) {
 		Userlogin user = loginService.finbyid(id);
+		//先走查询再走修改
+		map.put("use", user);
 		Log lg=new Log();
 		lg.setName(user.getName());
 		lg.setPassworld(user.getPassworld());
+		lg.setCz(0);//这里会有不过因为int类型默认值为0.所以应该用Integer
 		logService.insertlog(lg);
-		//先走查询再走修改
-		map.put("use", user);
 		return "/edit";
 	}
+	
+	
 	//删除
 	@RequestMapping("del")
-	public String del(@RequestParam(value = "id") int id, ModelMap map) {
-		loginService.deluser(id);
+	public String del(@RequestParam(value = "id") int id) {
+		
 		Userlogin user = loginService.finbyid(id);
+		
+		Log lg=new Log();
+		lg.setName(user.getName());
+		lg.setPassworld(user.getPassworld());
+		lg.setCz(1);
+		logService.insertlog(lg);
+		loginService.deluser(id);
 		//先走查询再走修改
 		return "redirect:/task2/demo.do";
 	}
@@ -76,6 +89,22 @@ public class LoginController {
 		//map.put("use", user);
 	}
 
+	
+	//日志查看
+	@RequestMapping("/log")
+	public String showlog(ModelMap map){
+		List<Log> list =logService.findall();
+		map.put("log", list);
+		
+		return "log";
+	}
+	
+	//日志删除
+	@RequestMapping("dellog")
+	public String dellog(@RequestParam(value = "id") int id, ModelMap map){
+		logService.delbyid(id);
+		return "redirect:/task2/log.do";
+	}
 	// 默认请求方式为get
 	/*
 	 * @RequestMapping(value="/login",method=RequestMethod.POST )

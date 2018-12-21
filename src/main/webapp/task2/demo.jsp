@@ -51,7 +51,10 @@
 </head>
 <body>
 <table class="table table-bordered table-striped">
-		<h2>用户管理</h2>
+		
+		<h2>用户管理&nbsp;|&nbsp;
+	<a href="task2/log.do" class="btn-delete" "><font>查看日志</font></a>
+	</h2>
 		<hr />
 		<tr>		
 			<th class="text-center">用户编号</th>

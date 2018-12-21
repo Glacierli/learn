@@ -1,32 +1,36 @@
 package cn.pdstore;
 
+import java.io.Serializable;
 import java.util.Date;
 
 /*
  * log实体类
  */
-public class Log {
+public class Log implements Serializable{
 private int id;
 private String name;
 private String passworld;
-private Date time;
+private Date shijian;
 private int cz;
 
 
 public Log() {
 	super();
 }
-public Log(int id, String name, String passworld, Date time, int cz) {
+public Log(int id, String name, String passworld, int cz, Date shijian) {
 	super();
 	this.id = id;
 	this.name = name;
 	this.passworld = passworld;
-	this.time = time;
+	this.shijian = shijian;
 	this.cz = cz;
 }
+
+
 @Override
 public String toString() {
-	return "Log [id=" + id + ", name=" + name + ", passworld=" + passworld + ", time=" + time + ", cz=" + cz + "]";
+	return "Log [id=" + id + ", name=" + name + ", passworld=" + passworld + ", shijian=" + shijian + ", cz=" + cz
+			+ "]";
 }
 public int getId() {
 	return id;
@@ -46,17 +50,18 @@ public String getPassworld() {
 public void setPassworld(String passworld) {
 	this.passworld = passworld;
 }
-public Date getTime() {
-	return time;
-}
-public void setTime(Date time) {
-	this.time = time;
-}
+
 public int getCz() {
 	return cz;
 }
 public void setCz(int cz) {
 	this.cz = cz;
+}
+public Date getShijian() {
+	return shijian;
+}
+public void setShijian(Date shijian) {
+	this.shijian = shijian;
 }
 
 }
