@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
+	<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 <%@page import="cn.pdstore.Log"%>
 <%@taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <%@ page import="java.util.*"%>
@@ -72,12 +73,16 @@
 									data-toggle="modal"><nobr>${ sj.id }</nobr></a> --%>
 				<td>${ sj.name }</td>
 				<td>${ sj.passworld }</td>
+				
 				<td>${ sj.shijian }</td>
 				<c:if test="${'0' eq sj.cz }">
 					<td>编辑</td>
 				</c:if>
 				<c:if test="${'1' eq sj.cz }">
 					<td>删除</td>
+				</c:if>
+				<c:if test="${'2' eq sj.cz }">
+					<td>login</td>
 				</c:if>
 				
 				</td>

@@ -10,14 +10,14 @@ public class Log implements Serializable{
 private int id;
 private String name;
 private String passworld;
-private Date shijian;
+private String shijian;
 private int cz;
 
 
 public Log() {
 	super();
 }
-public Log(int id, String name, String passworld, int cz, Date shijian) {
+public Log(int id, String name, String passworld, int cz, String shijian) {
 	super();
 	this.id = id;
 	this.name = name;
@@ -57,10 +57,10 @@ public int getCz() {
 public void setCz(int cz) {
 	this.cz = cz;
 }
-public Date getShijian() {
+public String getShijian() {
 	return shijian;
 }
-public void setShijian(Date shijian) {
+public void setShijian(String shijian) {
 	this.shijian = shijian;
 }
 

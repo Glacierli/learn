@@ -56,7 +56,7 @@
 		<div class="row row-centered">
 			<div class="well col-md-5 col-centered">
 				<h2>修改</h2>
-				<form id="form1">
+				<form id="form1" action="task2/editt.do" method="post">
 				<input name="id" id="id" value="<%=id%>" type="hidden"/>
 					<div class="input-group input-group-md">
 						<span class="input-group-addon" id="sizing-addon1"><i
@@ -72,7 +72,7 @@
 					</div>
 					<br />
 					<button type="submit" class="btn btn-success btn-block"
-						onclick="login()">提交</button>
+						>提交</button>
 					</form:form>
 			</div>
 		</div>
