@@ -19,8 +19,10 @@ public class LogService {
 		InputStream is = Resources.getResourceAsStream("sqlMapConfig.xml");
 		 sqlSessionFactory = new SqlSessionFactoryBuilder().build(is);
 		 SqlSession sqlsession = sqlSessionFactory.openSession();
-		String statement ="cn.pdstore.LogMapper.insertlog";
-		sqlsession.insert(statement, u);
+		 LogMapper mapper = sqlsession.getMapper(LogMapper.class);
+		 mapper.insertlog(u);
+		/*String statement ="cn.pdstore.LogMapper.insertlog";
+		sqlsession.insert(statement, u);*/
 		sqlsession.commit();
 		
 	}
@@ -29,8 +31,10 @@ public class LogService {
 		InputStream is = Resources.getResourceAsStream("sqlMapConfig.xml");
 		 sqlSessionFactory = new SqlSessionFactoryBuilder().build(is);
 		 SqlSession sqlsession = sqlSessionFactory.openSession();
-		 String statement="cn.pdstore.LogMapper.selectAll";
-		 List<Log> selectList = sqlsession.selectList(statement);
+		 LogMapper mapper = sqlsession.getMapper(LogMapper.class);
+		 List<Log> selectList = mapper.selectAll();
+		 /*String statement="cn.pdstore.LogMapper.selectAll";
+		 List<Log> selectList = sqlsession.selectList(statement);*/
 		return selectList;
 	}
 	//删除
@@ -39,8 +43,11 @@ public class LogService {
 		InputStream is = Resources.getResourceAsStream("sqlMapConfig.xml");
 		 sqlSessionFactory = new SqlSessionFactoryBuilder().build(is);
 		 SqlSession sqlsession = sqlSessionFactory.openSession();
+		 LogMapper mapper = sqlsession.getMapper(LogMapper.class);
+		 mapper.del(u);
+		/* 
 		 String statement="cn.pdstore.LogMapper.del";
-		 sqlsession.delete(statement, u);
+		 sqlsession.delete(statement, u);*/
 		 sqlsession.commit();
 	}
 
